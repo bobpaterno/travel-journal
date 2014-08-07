@@ -8,3 +8,9 @@
       * story
       * acceptance criteria
       * usage example
+ 
+  * DB Schema for Travel Journal
+    * Entries   (id, location_id, journal_entry, date)
+    * Locations (id, country, city, lat, long)
+    * Landmarks (id, location_id, name, description)
+
