@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
 
-puts "hello"
+require_relative 'lib/environment'
+Environment.environment = ENV["DB"] || "development"
+
+def clean_gets
+  (gets || "").chomp
+end
+
+puts "\n=================\nWelcome Traveler!\n=================\n"
+puts "New or View?"
 
