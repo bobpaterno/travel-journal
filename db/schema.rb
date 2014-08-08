@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807154500) do
+ActiveRecord::Schema.define(version: 20140808135300) do
 
   create_table "locations", force: true do |t|
-    t.string  "city"
-    t.string  "country"
-    t.integer "lat"
-    t.integer "long"
+    t.string "city"
+    t.string "country"
+    t.string "lat",     limit: 40
+    t.string "long",    limit: 40
   end
 
 end

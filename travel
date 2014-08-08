@@ -7,17 +7,22 @@ def clean_gets
   (gets || "").chomp
 end
 
+def print_welcome
+  puts "\n=================\nWelcome Traveler!\n=================\n"
+  puts "1. View\n2. New\n"
+end
+
 def show_view_menu
   puts "View what?\n1. Locations\n2. Landmarks\n3. Journal Entries\n"
 end
 
-puts "\n=================\nWelcome Traveler!\n=================\n"
-puts "1. New\n2. View\n"
-
+print_welcome
 command = clean_gets
 case command
 when "1"
   show_view_menu
+  locations_controller = LocationsController.new
+  locations_controller.list
 end
 
 

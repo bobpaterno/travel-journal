@@ -1,4 +1,4 @@
-RSpec.describe "Travel Journal main menu" do
+RSpec.describe "Travel Journal main menu", :integration do
   context "prints a menu with options" do
     let(:output){ run_travel_with_input() }
     it "shows a welcome message" do
@@ -10,8 +10,8 @@ Welcome Traveler!
       expect(output).to include(expected)
     end
 
-    it "prints out the options 'New or View' " do
-      expected = "1. New\n2. View\n"
+    it "prints out the options 'New and View' " do
+      expected = "1. View\n2. New\n"
       expect(output).to include(expected)
     end
   end
@@ -29,7 +29,6 @@ Welcome Traveler!
     let!(:location2){ Location.create(city: "New Orleans", country: "USA", lat: "1", long: "1") }
     let(:output){ run_travel_with_input("1", "1") }
     it "should show a list of all locations in db" do
-      pending "implementation of controllers and router"
       expect(output).to include("London")
       expect(output).to include("New Orleans")
     end
