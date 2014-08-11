@@ -28,12 +28,28 @@ Welcome Traveler!
     context "view locations" do
       let!(:location1){ Location.create(city: "London", country: "UK", lat: "0", long: "0") }
       let!(:location2){ Location.create(city: "New Orleans", country: "USA", lat: "1", long: "1") }
-      let(:output){ run_travel_with_input("view", "locations") }
+      let(:output){ run_travel_with_input("view", "1") }
       it "should show a list of all locations in db" do
         expect(output).to include("London")
         expect(output).to include("New Orleans")
       end
     end
+
+    context "show a specific location" do
+      let!(:location1){ Location.create(city: "London", country: "UK", lat: "0", long: "0") }
+      let!(:location2){ Location.create(city: "New Orleans", country: "USA", lat: "1", long: "1") }
+      let(:output){ run_travel_with_input("view", "1", "2") }
+      it "should show the New Orleans record" do
+        expect(output).to include("New Orleans, USA => Latitude 1  Longitude 1")
+      end
+    end
+
+    # context "enter a new location" do
+    #   let(:output){ run_travel_with_input("new") }
+    #   it "should prompt user to enter a new location" do
+    #
+    #   end
+    # end
   end
   context "invalid input" do
     let(:output){ run_travel_with_input("view", "cowabunga") }
