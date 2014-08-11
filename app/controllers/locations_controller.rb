@@ -11,4 +11,5 @@ class LocationsController
   def locations
     @locations ||= Location.all
   end
+
 end

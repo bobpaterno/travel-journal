@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative 'lib/environment'
+require_relative 'lib/router'
 Environment.environment = ENV["DB"] || "development"
 
 def clean_gets
@@ -12,17 +13,6 @@ def print_welcome
   puts "1. View\n2. New\n"
 end
 
-def show_view_menu
-  puts "View what?\n1. Locations\n2. Landmarks\n3. Journal Entries\n"
-end
-
 print_welcome
 command = clean_gets
-case command
-when "1"
-  show_view_menu
-  locations_controller = LocationsController.new
-  locations_controller.list
-end
-
-
+Router.route(command.downcase)
