@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808135300) do
+ActiveRecord::Schema.define(version: 20140812130100) do
+
+  create_table "landmarks", force: true do |t|
+    t.string "name"
+  end
 
   create_table "locations", force: true do |t|
     t.string "city"
