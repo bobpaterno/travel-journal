@@ -41,6 +41,21 @@ RSpec.describe "Create Landmarks Integration", :integration do
           expect(Landmark.count).to eq 1
         end
       end
+
+      context "checks landmark's location_id is correct location" do
+        let!(:landmark){ Landmark.create(name: "Louvre", location_id: location3.id) }
+        it "checks if location id is properly referenced in landmark table" do
+          expect(landmark.location_id).to eq location3.id
+        end
+      end
+
+      context "checks landmark's location_id is correct in application" do
+        let!(:output){ run_travel_with_input("new", "2", "1", "Big Ben") }
+        it "checks if location id is properly referenced in landmark table" do
+          landmark = Landmark.all.last
+          expect(landmark.location_id).to eq location1.id
+        end
+      end
     end
   end
 

@@ -45,11 +45,9 @@ class LandmarksController < ControllerBase
     elsif location_index.to_i > 0 && location_index.to_i <= Location.count
       puts "Enter the name of the landmark"
       landmark_name = clean_gets
-      Landmark.create(name: landmark_name)
+      matched_location = locations[location_index.to_i - 1]
+      Landmark.create(name: landmark_name, location_id: matched_location.id)
     end
-
-    # record = record.split(",").map! { |m| m.strip } # doesn't error check
-    # Location.create(city: record[0], country: record[1], lat: record[2], long: record[3])
   end
 
   def landmarks
