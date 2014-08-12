@@ -12,7 +12,7 @@ Welcome Traveler!
       end
 
       it "prints out the options 'New and View' " do
-        expected = "1. View\n2. New\n"
+        expected = "Type: View or New\n"
         expect(output).to include(expected)
       end
     end
@@ -44,12 +44,23 @@ Welcome Traveler!
       end
     end
 
-    # context "enter a new location" do
-    #   let(:output){ run_travel_with_input("new") }
-    #   it "should prompt user to enter a new location" do
-    #
-    #   end
-    # end
+    context "prompt user to enter a new location" do
+      let(:output){ run_travel_with_input("new", "1") }
+      it "should prompt user to enter a new location" do
+        expect(output).to include("Enter the city, country, latitude, and longitude separated by commas")
+      end
+    end
+
+    context "save a new location" do
+      let!(:output){ run_travel_with_input("new", "1", "Austin, USA, 21.2, 30.4") }
+      it "should save the new record to the database" do
+        location = Location.last
+        expect(location.city).to eq "Austin"
+        expect(location.country).to eq "USA"
+        expect(location.lat).to eq "21.2"
+        expect(location.long).to eq "30.4"
+      end
+    end
   end
   context "invalid input" do
     let(:output){ run_travel_with_input("view", "cowabunga") }

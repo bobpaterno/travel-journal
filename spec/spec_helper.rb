@@ -15,6 +15,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require_relative '../lib/environment'
+require_relative '../lib/router'
 Environment.environment = "test"
 
 require_relative 'helpers'

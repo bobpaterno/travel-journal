@@ -8,11 +8,11 @@ def clean_gets
   (gets || "").chomp
 end
 
-def print_welcome
-  puts "\n=================\nWelcome Traveler!\n=================\n"
-  puts "1. View\n2. New\n"
-end
+# def print_welcome
+#   puts "\n=================\nWelcome Traveler!\n=================\n"
+#   puts "1. View\n2. New\n"
+# end
 
-print_welcome
-command = clean_gets
-Router.route(command.downcase)
+# print_welcome
+# command = clean_gets
+Router.route()
