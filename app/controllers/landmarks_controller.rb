@@ -1,10 +1,15 @@
 require_relative 'base.rb'
 
 class LandmarksController < ControllerBase
-  # def list
-  #   puts "=============="
-  #   puts "Locations View"
-  #   puts "==============\n"
+  def list
+    if Landmark.count == 0
+      puts "No landmarks exist"
+      exit
+    end
+    puts "=============="
+    puts "Landmarks View"
+    puts "==============\n"
+    puts "1. See all landmarks\n2. By location\n"
   #   locations.each_with_index do |location, index|
   #     puts "#{index+1}. #{location.city}"
   #   end
@@ -17,7 +22,7 @@ class LandmarksController < ControllerBase
   #   else
   #     Router.route("locations", "show", location_id: matched_location.id)
   #   end
-  # end
+  end
   #
   # def show
   #   location = Location.find(params[:location_id])
@@ -47,8 +52,8 @@ class LandmarksController < ControllerBase
     # Location.create(city: record[0], country: record[1], lat: record[2], long: record[3])
   end
 
-  # def landmarks
-  #   @landmarks ||= Landmarks.all
-  # end
+  def landmarks
+    @landmarks ||= Landmarks.all
+  end
 
 end
