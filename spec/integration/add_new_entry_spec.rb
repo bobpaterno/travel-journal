@@ -37,6 +37,14 @@ RSpec.describe "Create Journal Entry Integration", :integration do
         expect(output).to include(expected)
       end
     end
+
+    context "user enters a journal entry" do
+      let!(:output){ run_travel_with_input("new", "3", "2", "what a great day I had here") }
+      it "should record a journal entry" do
+        expect(Entry.count).to eq 1
+      end
+    end
+
   end
 
 end
