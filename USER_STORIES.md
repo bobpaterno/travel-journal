@@ -59,7 +59,6 @@ Usage
 * World traveler lists all locations and is prompted to select a location
 * World traveler selects a location number (e.g. `2`) and is then prompted to enter the landmark's
   * Name
-  * Description
 
 Acceptance Criteria
 * Duplicate landmarks are not allowed
@@ -75,7 +74,8 @@ I want to see a list of the landmarks
 Usage
 * World traveler is prompted with "New or View" and types `view`
 * Prompt is "View what? (1. locations, 2. landmarks, 3. entries)"
-* World traveler types `2` to view all landmarks
+* World traveler types `2` to view landmarks
+* Prompts to `1` see all or `2` see by location
 
 Acceptance Criteria
 * A list of all landmarks is displayed (read from database)
@@ -104,4 +104,3 @@ Acceptance Criteria
 ## World Traveler Views Journal Entries by Landmark
 
 ## World Traveler Views All Landmarks in a Location they have written about
-
