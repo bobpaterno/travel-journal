@@ -1,6 +1,7 @@
 RSpec.describe Landmark do
   context "validations" do
     it { should validate_presence_of :name }
+    it { should validate_uniqueness_of(:name).with_message("already exists")}
   end
 
   context "correct location id" do
