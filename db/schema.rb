@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812140000) do
+ActiveRecord::Schema.define(version: 20140812224500) do
+
+  create_table "entries", force: true do |t|
+    t.text     "journal_entry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "location_id"
+  end
+
+  add_index "entries", ["location_id"], name: "index_entries_on_location_id"
 
   create_table "landmarks", force: true do |t|
     t.string  "name"
